@@ -37,9 +37,12 @@
 // console.log(validarNip())
 // const nip = 1234;
 // let flag = 0;
-
-
-
-let nip = Number(prompt("Ingresa tu NIP"))
-let userNip = 1234;
-validarNip(nip);
+class{}
+function validarNip(nip) {
+    if (nip == userNip) {
+        alert("¡Bienvienido!");
+    }
+    else{
+        alert("Nip inválido");
+    }
+}
