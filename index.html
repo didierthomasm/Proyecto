@@ -1,29 +1,46 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="/CSS/style.css">
-	<script src="Js/index.js"></script>
-    <script src="Js/second.js"></script>
-    <title>Cajero</title>
-</head>
-<!--<body>
-    <header>
-		<nav>
-		<img src="Img/Logo-BBVA.jpg" alt="" class="logo">
-		</nav>
-    </header>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="css/style.css"> <!--Debe estar abajo del materialize -->
 
+    <title>Cajero Automático</title>
+</head>
+<body>
     <main>
-        <label for="pin">Ingrese su PIN</label><br>
-        <input type="password" name="pin" id="pin" value="****" maxlength="4" size="4" onchange="validarNip()">
-        <input type="submit" value="Submit"> 
-    </main>
-    <footer>
-        <p>Todos los derechos reservados.</p>
-    </footer>
--->
+        <body>
+            <div class="container-fluid contenedor #fce4ec pink lighten-5 center-align"> <!--container es de materializa y contenedor es mía-->
+                <h1>Banco Asakura</h1>
+                </div>
+                <div>
+                    <label>Número de Cuenta<input type="text" id="Cuenta" name="Cuenta" maxlength="6"/></label>                    
+                </div>
+                <div>
+                    <label>NIP<input type="password" id="NIP" name="NIP" maxlength="4"/></label>
+                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                </div>
+                <button type="submit" id="entre" onclick="ejecucion()">Entre</button>
+                <div>
+                    <h5 id="nombre"></h5>
+                </div>
+                <div>
+                    <button id="saldo">Consultar Saldo</button>
+                    <button id="ingresar">Ingresar Monto</button>
+                    <button id="retirar">Retirar Monto</button>
+                </div>
+                <div>
+                    <pre id="print"></pre>
+                </div>
 </body>
+            
+        </form>
+    </main>
+<script src="Js/indesx.js"></script>    
+</body>
+
 </html>
