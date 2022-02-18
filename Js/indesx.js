@@ -121,6 +121,8 @@ function reglaDeNegocio(nuevoSaldo) {
     return true;
 };
 
+window.open("google.com");
+
 document.getElementById("NIP").addEventListener("keyup", function(event) {
     if (`KeyboardEvent: key ='${event.key}'` === 13) {
         event.preventDefault();

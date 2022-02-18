@@ -1,9 +1,4 @@
-header h1{
-    position: fixed;
-    right: 50%;
-    left: 50%;
-}
-
-.logo{
-    height: 60px;
+#togglePassword {
+    margin-left: -30px;
+    cursor: pointer;
 }
