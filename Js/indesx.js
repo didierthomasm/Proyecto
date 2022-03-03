@@ -21,13 +21,13 @@ let cuentaInput;
 /*Función que encuentra un elemento en el HTML y devuelve su valor*/
 function input(id) {
     return document.getElementById(id).value;
-};
+}
 
 /*Función que da la hora y los minutos del día en formato 24hrs*/
 function horaDelDia() {
-    var date = new Date;
+    let date = new Date;
     return (`${date.getHours()}${date.getMinutes()}`);
-};
+}
 
 /*Función que da las Buenas... según la hora del día*/
 function saludoPorHora(cliente) {
@@ -43,7 +43,7 @@ function saludoPorHora(cliente) {
         saludo = `Buenas noches ${cuentas[cliente].nombreCompleto}`
     }
     return saludo;
-};
+}
 
 
 /*Función que valida el numero de cuenta ingresado por el cliente contra el de la base de datos*/
@@ -51,9 +51,9 @@ function validacionUsuario() {
     cuentaInput = input("Cuenta");
     let bandera = false;
     for (let index = 0; index < Object.keys(cuentas).length; index++) {
-        if(bandera == true) {break;}
+        if(bandera === true) {break;}
         let element = Object.keys(cuentas)[index];
-            if (cuentaInput == element){
+            if (cuentaInput === element){
                 bandera = true;
             }
             else{
@@ -61,14 +61,14 @@ function validacionUsuario() {
                 
     }
     return bandera;
-};
+}
 
 /*Función que valida el nip ingresado por el cliente contra el de la base de datos*/
 function validacioNip(cliente) {
     let bandera = false;
-    let nipInput = input("NIP");
+    let nipInput = Number(input("NIP"));
     let nipCliente = cuentas[cliente].nip;
-    if(nipInput == nipCliente){
+    if(nipInput === nipCliente){
         document.getElementById("nombre").innerHTML = saludoPorHora(cliente);
         //alert(saludoPorHora(cliente))
         bandera = true;
@@ -87,7 +87,7 @@ function printMessage(message) {
 /*Función que regresa el saldo en la cuenta*/
 function consultarSaldo(cliente) {
     return printMessage(`Su saldo disponible es de $${cuentas[cliente].saldo}`);
-};
+}
 
 /*Función que regresa el monto a depositar y el monto nuevo*/
 function ingresarMonto(cliente) {
@@ -97,7 +97,7 @@ function ingresarMonto(cliente) {
         printMessage(`Tú deposito fue por $${deposito} y tu nuevo total es de $${nuevoSaldo}`);
         cuentas[cliente].saldo = nuevoSaldo;
     }
-};
+}
 
 /*Función que regresa el monto a retirar y el monto nuevo*/
 function retirarMonto(cliente) {
@@ -107,7 +107,7 @@ function retirarMonto(cliente) {
         printMessage(`Tú retiro fue por $${retiro} y tu nuevo total es de $${nuevoSaldo}`);
         cuentas[cliente].saldo = nuevoSaldo;
     }
-};
+}
 
 /*Función que valida las condiciones de la tara sobre el saldo disponible*/
 function reglaDeNegocio(nuevoSaldo) {
@@ -119,23 +119,22 @@ function reglaDeNegocio(nuevoSaldo) {
         
     }
     return true;
-};
+}
 
-window.open("google.com");
 
 document.getElementById("NIP").addEventListener("keyup", function(event) {
-    if (`KeyboardEvent: key ='${event.key}'` === 13) {
+    if (event.code === "Enter" || event.code === "NumpadEnter") {
         event.preventDefault();
         document.getElementById("entre").click();
     }
-});
+})
 
 /*Activa o desavtiva la visibilidad del campo NIP y cambia la imagen del ojo de password*/
 document.getElementById("togglePassword").addEventListener('click', function (e) {
     const type = document.getElementById("NIP").getAttribute('type') === 'password' ? 'text' : 'password';
     document.getElementById("NIP").setAttribute('type', type);
     this.classList.toggle('bi-eye');
-});
+})
 
 /*Función que ejecuta las funciones*/
 function ejecucion() {
@@ -160,4 +159,4 @@ function ejecucion() {
     else {
         alert("Hay algun error en los datos que ingresaste.");
     }
-};
+}
